@@ -22,6 +22,7 @@ class QuotesController < ApplicationController
       render status: 200, json: {
         message: "Quote successfully updated."
       }
+    end
   end
 
   def destroy
@@ -30,6 +31,7 @@ class QuotesController < ApplicationController
       render status: 200, json: {
         message: "Quote successfully destroyed."
       }
+    end
   end
 
   private
