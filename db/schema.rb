@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_212243) do
+ActiveRecord::Schema.define(version: 2018_05_07_225506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "queens", force: :cascade do |t|
     t.string "name"
+    t.string "real_name"
+    t.string "city"
+    t.integer "age"
   end
 
   create_table "queens_seasons", id: false, force: :cascade do |t|
@@ -27,7 +30,6 @@ ActiveRecord::Schema.define(version: 2018_05_07_212243) do
 
   create_table "quotes", force: :cascade do |t|
     t.string "content"
-    t.string "author"
   end
 
   create_table "seasons", force: :cascade do |t|
