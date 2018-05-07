@@ -10,14 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_162052) do
+ActiveRecord::Schema.define(version: 2018_05_07_212243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "queens", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "queens_seasons", id: false, force: :cascade do |t|
+    t.bigint "queen_id", null: false
+    t.bigint "season_id", null: false
+    t.index ["queen_id", "season_id"], name: "index_queens_seasons_on_queen_id_and_season_id"
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.string "content"
     t.string "author"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
   end
 
 end

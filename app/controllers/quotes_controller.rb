@@ -2,8 +2,11 @@ class QuotesController < ApplicationController
   include Response
 
   def index
-    queen = params[:queen]
-    @quotes = Quote.search(queen)
+    if queen = params[:queen]
+      @quotes = Quote.search(queen)
+    else
+      @quotes = Quote.all
+    end
     json_response(@quotes, :ok)
   end
 
