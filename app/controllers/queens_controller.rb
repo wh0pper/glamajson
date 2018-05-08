@@ -1,22 +1,24 @@
 class QueensController < ApplicationController
   include Response
-  include QueenSerializer
 
   def index
+    inclusions = nil
+    if params[:quotes] == 'true'
+      inclusions = :quotes
+    end
     @queens = Queen.all
-    # json_response(@queens, [:quotes], :ok)
-    binding.pry
-    # render json: @queens, status: :ok, serializer: QueenSerializer
+    json_response(@queens, inclusions, :ok)
+    # render json: @queens, include: inclusions, status: :ok
   end
 
   def show
     @queen = Queen.find(params[:id])
-    json_response(@queen, :ok)
+    json_response(@queen, nil, :ok)
   end
 
   def create
     @queen = Queen.create!(queen_params)
-    json_response(@queen, :created)
+    json_response(@queen, nil, :created)
   end
 
   def update

@@ -7,18 +7,17 @@ class QuotesController < ApplicationController
     else
       @quotes = Quote.all
     end
-    json_response(@quotes, :ok)
-    # render @quotes.as_json(include:[:queen]), status: :ok
+    json_response(@quotes, nil, :ok)
   end
 
   def show
     @quote = Quote.find(params[:id])
-    json_response(@quote, :ok)
+    json_response(@quote, nil, :ok)
   end
 
   def create
     @quote = Quote.create!(quote_params)
-    json_response(@quote, :created)
+    json_response(@quote, nil, :created)
   end
 
   def update
