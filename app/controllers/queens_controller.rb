@@ -4,7 +4,7 @@ class QueensController < ApplicationController
   def index
     @queens = Queen.all
     # json_response(@queens, [:quotes], :ok)
-    render json: @queens, include: :quotes, status: :ok
+    render json: @queens, status: :ok, serializer: QueenSerializer
   end
 
   def show
