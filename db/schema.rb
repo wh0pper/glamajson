@@ -16,6 +16,10 @@ ActiveRecord::Schema.define(version: 2018_05_08_180556) do
   enable_extension "plpgsql"
 
   create_table "episodes", force: :cascade do |t|
+    t.integer "number_in_series"
+    t.integer "number_in_season"
+    t.string "title"
+    t.string "airdate"
   end
 
   create_table "queens", force: :cascade do |t|
