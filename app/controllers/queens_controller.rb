@@ -1,10 +1,12 @@
 class QueensController < ApplicationController
   include Response
+  include QueenSerializer
 
   def index
     @queens = Queen.all
     # json_response(@queens, [:quotes], :ok)
-    render json: @queens, status: :ok, serializer: QueenSerializer
+    binding.pry
+    # render json: @queens, status: :ok, serializer: QueenSerializer
   end
 
   def show

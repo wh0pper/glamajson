@@ -1,4 +1,5 @@
-class QueenSerializer < ActiveModel::Serializer
-  attributes (:name, :real_name, :city, :age)
+class QueenSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :name, :real_name, :city, :age
   has_many :quotes
 end
