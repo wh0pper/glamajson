@@ -3,7 +3,8 @@ class QueensController < ApplicationController
 
   def index
     @queens = Queen.all
-    json_response(@queens, :ok)
+    # json_response(@queens, [:quotes], :ok)
+    render json: @queens, include: :quotes, status: :ok
   end
 
   def show

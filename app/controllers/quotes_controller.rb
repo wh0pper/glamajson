@@ -8,6 +8,7 @@ class QuotesController < ApplicationController
       @quotes = Quote.all
     end
     json_response(@quotes, :ok)
+    # render @quotes.as_json(include:[:queen]), status: :ok
   end
 
   def show
