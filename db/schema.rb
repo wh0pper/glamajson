@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_225506) do
+ActiveRecord::Schema.define(version: 2018_05_08_160453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_225506) do
 
   create_table "quotes", force: :cascade do |t|
     t.string "content"
+    t.bigint "queen_id"
+    t.index ["queen_id"], name: "index_quotes_on_queen_id"
   end
 
   create_table "seasons", force: :cascade do |t|
