@@ -36,6 +36,6 @@ class QueensController < ApplicationController
 
   private
   def queen_params
-    params.permit(:name)
+    params.permit(:name, :real_name, :city, :age)
   end
 end

@@ -27,7 +27,7 @@ class Seed
       queens = Nokogiri::HTML(open(uri)).xpath('//div[contains(@class, "title")]')
       season = Season.create!(name: "Season #{i+1}")
       queens.each do |queen|
-        unless (queen.text == "Category page") || (queen.text == "Transgender Queens")
+        unless (queen.text == "Category page") || (queen.text == "Transgender Queens") || (queen.text == "Bitter Old Lady Brigade")
           season.queens.create!(name: queen.text)
         end
       end
@@ -37,13 +37,22 @@ class Seed
   def get_queen_details
     Queen.all.each do |queen|
       uri = "http://rupaulsdragrace.wikia.com/wiki/#{ERB::Util.url_encode(queen.name)}"
-      if page = Nokogiri::HTML(open(uri))
-        queen.update!(
-          real_name: page.xpath("//div[contains(@class, 'pi-item pi-data')]/div")[1].text,
-          age: page.xpath("//div[contains(@class, 'pi-item pi-data')]/div")[3].text,
-          city: page.xpath("//div[contains(@class, 'pi-item pi-data')]/div")[5].text
-        )
-      end  
+      begin
+        page = Nokogiri::HTML(open(uri))
+        if page != nil
+          queen.update!(
+            real_name: page.xpath("//h3[text()='Real Name']/following-sibling::div").text,
+            age: page.xpath("//h3[text()='Age']/following-sibling::div").text,
+            city: page.xpath("//h3[text()='Current City']/following-sibling::div").text
+          )
+        end
+      rescue OpenURI::HTTPError => e
+        if e.message == '404 Not Found'
+          puts "Page not found for #{queen.name}"
+        else
+          raise e
+        end
+      end
     end
   end
 end
