@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2018_05_08_180556) do
     t.integer "number_in_season"
     t.string "title"
     t.string "airdate"
+    t.bigint "season_id"
+    t.index ["season_id"], name: "index_episodes_on_season_id"
   end
 
   create_table "queens", force: :cascade do |t|

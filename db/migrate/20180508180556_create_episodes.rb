@@ -5,6 +5,7 @@ class CreateEpisodes < ActiveRecord::Migration[5.2]
       t.column :number_in_season, :integer
       t.column :title, :string
       t.column :airdate, :string
+      t.references :season, index: true
     end
   end
 end
