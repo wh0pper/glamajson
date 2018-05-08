@@ -2,12 +2,15 @@ class QuotesController < ApplicationController
   include Response
 
   def index
-    if queen = params[:queen]
-      @quotes = Quote.search(queen)
+    if params[:author] == 'true'
+      inclusions = :queen
+    end
+    if params[:random] == 'true'
+      @quotes = Quote.order("RANDOM()").first
     else
       @quotes = Quote.all
     end
-    json_response(@quotes, nil, :ok)
+    json_response(@quotes, inclusions, :ok)
   end
 
   def show
