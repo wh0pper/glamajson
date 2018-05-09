@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_08_180556) do
+ActiveRecord::Schema.define(version: 2018_05_09_154704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "type"
+    t.string "descriptions"
+    t.bigint "winner_id"
+    t.bigint "episode_id"
+    t.index ["episode_id"], name: "index_challenges_on_episode_id"
+    t.index ["winner_id"], name: "index_challenges_on_winner_id"
+  end
 
   create_table "episodes", force: :cascade do |t|
     t.integer "number_in_series"
@@ -21,7 +30,17 @@ ActiveRecord::Schema.define(version: 2018_05_08_180556) do
     t.string "title"
     t.string "airdate"
     t.bigint "season_id"
+    t.string "bottom_two"
+    t.string "elimated"
+    t.string "winner"
+    t.string "lip_synch"
     t.index ["season_id"], name: "index_episodes_on_season_id"
+  end
+
+  create_table "episodes_queens", id: false, force: :cascade do |t|
+    t.bigint "episode_id", null: false
+    t.bigint "queen_id", null: false
+    t.index ["episode_id", "queen_id"], name: "index_episodes_queens_on_episode_id_and_queen_id"
   end
 
   create_table "queens", force: :cascade do |t|
@@ -47,4 +66,5 @@ ActiveRecord::Schema.define(version: 2018_05_08_180556) do
     t.string "name"
   end
 
+  add_foreign_key "challenges", "queens", column: "winner_id"
 end
