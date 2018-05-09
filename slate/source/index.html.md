@@ -173,7 +173,7 @@ let max = api.kittens.get(2);
 
 This endpoint retrieves a specific queen.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 
 ### HTTP Request
 
@@ -185,7 +185,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the queen to retrieve
 
-## Delete a Specific Queen
+<!-- ## Delete a Specific Queen
 
 <!-- ```ruby
 require 'kittn'
@@ -232,7 +232,7 @@ This endpoint deletes a specific queen.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the queen to delete
+ID | The ID of the queen to delete -->
 
 # Quotes Endpoint
 
@@ -249,5 +249,9 @@ random | with ?random=true, one random quote will be returned
 author | with ?author=true, all returned quotes will also list the associated queen
 
 # Seasons Endpoint
+## This endpoint retrieves all season of Drag Race.
+### HTTP Request
+`GET http://#.com/seasons`
+### URL Parameters
 
 # Episodes Endpoint
