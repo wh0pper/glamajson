@@ -17,25 +17,39 @@ search: true
 
 # Introduction
 
-Welcome to the Drag Race API! You can use our API to access Drag Race API endpoints, which can get information on various queens, seasons, episodes and challenges in our database.
+Welcome to GlamaJSON, the Drag Race API! You can use our API to access a variety of Drag Race Data endpoints to get information on various queens, seasons, episodes and challenges in our database.
 
-The area to the right will show you how to test various calls with shell and the resulting JSON returns.
+The area to the right will show you how to test various calls from the command line and the resulting JSON returns.
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+
+### Now sissy that call!!!
 
 # Authentication
 
 ```shell
+# to register and generate an API key
+curl -H "Content-Type: application/json"
+-X POST -d '{"email":"<YOUR_ADDRESS>@email.com","password":"<CHOOSE A PASSWORD"}'
+http://localhost:3000/authenticate
+```
+
+> The above command returns your key formatted like this:
+
+```shell
+{"auth_token":"bGciOiJIUzI1NiJ9.eyAiOjE1MjYwNTDl9.U81PZl3mdtvlX0YaM"}
+
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  # -H "Authorization: meowmeowmeow"
+curl "api_endpoint_here" -H "Authorization: <YOUR_KEY_HERE>"
 ```
 
 
-This API currently doesn't use any authentication, so have at it!
+Generate your own API key by executing the code to the right from the terminal.
 
 <aside class="notice">
-I'll add some eventually
+<b>"How's your header!?"</b>
+<br>
+Keep this key private and include it in the header of any requests you make.
 </aside>
 
 # Queens Endpoint
@@ -189,7 +203,7 @@ Remember — if you're not limiting your API calls, you're not doing drag!
 
 # Episodes Endpoint
 
-## Get All Episodes 
+## Get All Episodes
 
 ### HTTP Requests
 
