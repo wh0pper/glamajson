@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_154809) do
+ActiveRecord::Schema.define(version: 2018_05_10_181636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_05_10_154809) do
     t.string "airdate"
     t.bigint "season_id"
     t.string "bottom_two"
-    t.string "elimated"
+    t.string "eliminated"
     t.string "winner"
     t.string "lip_synch"
     t.index ["season_id"], name: "index_episodes_on_season_id"
