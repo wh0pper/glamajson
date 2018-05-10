@@ -11,7 +11,7 @@ class EpisodesController < ApplicationController
   end
 
   def show
-    @episide = Episode.find(params[:id])
+    @episode = Episode.find(params[:id])
     json_response(@episode, nil, :ok)
   end
   #

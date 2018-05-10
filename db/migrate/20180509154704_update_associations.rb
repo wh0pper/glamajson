@@ -3,7 +3,7 @@ class UpdateAssociations < ActiveRecord::Migration[5.2]
     create_table :challenges do |t|
       t.column :type, :string
       t.column :descriptions, :string
-      t.references :winner, index: true, foreign_key: { to_table: :queens }
+      t.column :winner, :string
       t.references :episode, index: true
     end
 

@@ -3,6 +3,9 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+## Setup
+When seeding database, do queens before episodes
+
 Things you may want to cover:
 
 * Ruby version

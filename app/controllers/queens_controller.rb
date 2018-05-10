@@ -6,9 +6,17 @@ class QueensController < ApplicationController
     if params[:quotes] == 'true'
       inclusions = :quotes
     end
-    @queens = Queen.all
+    if params[:name]
+      @queens = Queen.search_by_name(params[:name])
+    elsif params[:winners]
+      @queens = Queen.search_for_winners
+    elsif params[:serial]
+      @queens = Queen.search_for_serial
+    else
+      @queens = Queen.all
+    end
+
     json_response(@queens, inclusions, :ok)
-    # render json: @queens, include: inclusions, status: :ok
   end
 
   def show

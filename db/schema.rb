@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_09_154704) do
+ActiveRecord::Schema.define(version: 2018_05_09_212224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 2018_05_09_154704) do
   create_table "challenges", force: :cascade do |t|
     t.string "type"
     t.string "descriptions"
-    t.bigint "winner_id"
+    t.string "winner"
     t.bigint "episode_id"
     t.index ["episode_id"], name: "index_challenges_on_episode_id"
-    t.index ["winner_id"], name: "index_challenges_on_winner_id"
   end
 
   create_table "episodes", force: :cascade do |t|
@@ -64,7 +63,9 @@ ActiveRecord::Schema.define(version: 2018_05_09_154704) do
 
   create_table "seasons", force: :cascade do |t|
     t.string "name"
+    t.bigint "winner_id"
+    t.index ["winner_id"], name: "index_seasons_on_winner_id"
   end
 
-  add_foreign_key "challenges", "queens", column: "winner_id"
+  add_foreign_key "seasons", "queens", column: "winner_id"
 end

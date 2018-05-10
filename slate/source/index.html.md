@@ -25,39 +25,14 @@ This example API documentation page was created with [Slate](https://github.com/
 
 # Authentication
 
-> To authorize, use this code:
-
-<!-- ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-``` -->
-
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   # -H "Authorization: meowmeowmeow"
 ```
 
-<!-- ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-``` -->
-
-<!-- > Make sure to replace `meowmeowmeow` with your API key. -->
 
 This API currently doesn't use any authentication, so have at it!
-
-<!-- Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow` -->
 
 <aside class="notice">
 I'll add some eventually
@@ -67,31 +42,11 @@ I'll add some eventually
 
 ## Get All Queens
 
-<!-- ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-``` -->
 
 ```shell
 curl "http://example.com/queens"
   # -H "Authorization: meowmeowmeow"
 ```
-
-<!-- ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-``` -->
 
 > The above command returns JSON structured like this:
 
@@ -116,16 +71,22 @@ let kittens = api.kittens.get();
 
 This endpoint retrieves all queens.
 
-### HTTP Request
+### HTTP Requests
 
 `GET http://example.com/queens`
+
+`GET http://example.com/queens?winners=true`
+
+`GET http://example.com/queens?serial=true`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-queen | all | Search for specific queen by name, i.e. /queens?queen=Bebe%20DZahara%20DBenet
+name | all | Search for specific queen by name, i.e. /queens?name=Bebe%20DZahara%20DBenet
 quotes | false | If set to true, the result will include five quotes for each queen.
+winners | false | If set to true, the result will include the winner for each season.
+serial | false | If set to true, the result will include queens who returned for multiple seasons.
 
 <aside class="success">
 Remember — if you're not limiting your API calls, you're not doing drag!
@@ -133,31 +94,10 @@ Remember — if you're not limiting your API calls, you're not doing drag!
 
 ## Get a Specific Queen
 
-<!-- ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-``` -->
-
 ```shell
 curl "http://example.com/queens/2"
   # -H "Authorization: meowmeowmeow"
 ```
-
-<!-- ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-``` -->
 
 > The above command returns JSON structured like this:
 
@@ -185,60 +125,15 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the queen to retrieve
 
-<!-- ## Delete a Specific Queen
-
-<!-- ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-``` -->
-
-```shell
-curl "http://example.com/queens/2"
-  -X DELETE
-  -H "Authorization: <API key here>"
-```
-
-<!-- ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-``` -->
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "message": "Queen successfully destroyed."
-}
-```
-
-This endpoint deletes a specific queen.
-
-### HTTP Request
-
-`DELETE http://example.com/queens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the queen to delete -->
 
 # Quotes Endpoint
 
-## This endpoint retrieves all quotes in our database.
+## Get All Quotes
+
+This endpoint retrieves all quotes in our database.
 
 ### HTTP Request
+
 `GET http://example.com/quotes`
 
 ### URL Parameters
@@ -249,9 +144,57 @@ random | with ?random=true, one random quote will be returned
 author | with ?author=true, all returned quotes will also list the associated queen
 
 # Seasons Endpoint
-## This endpoint retrieves all season of Drag Race.
-### HTTP Request
-`GET http://#.com/seasons`
-### URL Parameters
+
+## Get All Seasons
+
+
+```shell
+curl "http://example.com/seasons"
+  # -H "Authorization: meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+
+  },
+  {
+
+  }
+]
+```
+
+This endpoint retrieves all seasons.
+
+### HTTP Requests
+
+`GET http://example.com/seasons`
+Returns all seasons.
+
+`GET http://example.com/seasons/(id)/episodes`
+Returns all episodes for a specific season id.
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+allstar | false | if set to true it will return only allstar seasons.
+current | false | if set to true it will return the current or most recent season.
+
+<aside class="success">
+Remember — if you're not limiting your API calls, you're not doing drag!
+</aside>
 
 # Episodes Endpoint
+
+## Get All Episodes 
+
+### HTTP Requests
+
+`GET http://example.com/episodes`
+Returns all episodes.
+
+`GET http://example.com/episodes/(id)/challenges`
+Returns all challenges for a specific episode id.
