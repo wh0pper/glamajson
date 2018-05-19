@@ -15,7 +15,7 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find(params[:id])
-    json_response(@quote, nil, :ok)
+    json_response(@quote, :queen, :ok)
   end
 
   def create
