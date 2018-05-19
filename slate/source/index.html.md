@@ -88,9 +88,6 @@ quotes | false | If set to true, the result will include five quotes for each qu
 winners | false | If set to true, the result will include the winner for each season.
 serial | false | If set to true, the result will include queens who returned for multiple seasons.
 
-<aside class="success">
-Remember — if you're not limiting your API calls, you're not doing drag!
-</aside>
 
 ## Get a Specific Queen
 
@@ -160,7 +157,7 @@ author | with ?author=true, all returned quotes will also list the associated qu
 rupaul | with ?rupaul=true, only quotes from RuPaul will be returned
 
 
-## Get a specific quote
+## Get a Specific Quote
 This endpoint allows you to get a specific quote with the associated queen.
 
 ### HTTP Request
@@ -192,20 +189,32 @@ curl "http://example.com/quotes/2"
 
 
 ```shell
-curl "http://example.com/seasons"
+curl "http://example.com/season/1"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
+{
+    "id": 1,
+    "name": "Season 1",
+    "winner_id": 2,
+    "episodes": [
+      {
+        "id": 515,
+        "number_in_series": 2,
+        "number_in_season": 2,
+        "title": "Girl Groups",
+        "airdate": "February 9, 2009 (2009-02-09)",
+        "season_id": 1,
+        "bottom_two": "Akashia & Tammie Brown",
+        "eliminated": "Tammie Brown",
+        "winner": "Ongina",
+        "lip_synch": "We Break the Dawn by Michelle Williams"
+    }
+  ]
+}
 
-  },
-  {
-
-  }
-]
 ```
 
 This endpoint retrieves all seasons.
@@ -215,8 +224,8 @@ This endpoint retrieves all seasons.
 `GET http://example.com/seasons`
 Returns all seasons.
 
-`GET http://example.com/seasons/(id)/episodes`
-Returns all episodes for a specific season id.
+`GET http://example.com/seasons/<ID>`
+Returns a specific season and all of its episodes.
 
 ### Query Parameters
 
@@ -232,14 +241,15 @@ Remember — if you're not limiting your API calls, you're not doing drag!
 # Episodes Endpoint
 
 ## Get All Episodes
+This endpoint returns all episodes in the series and information on the challenges, bottom two queens, lip synch songs and main-challenge winners.
 
 ### HTTP Requests
 
 `GET http://example.com/episodes`
 Returns all episodes.
 
-`GET http://example.com/episodes/(id)/challenges`
-Returns all challenges for a specific episode id.
+`GET http://example.com/episodes/<ID`
+Returns a specific episode.
 
 
 <aside class="success">
