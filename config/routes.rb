@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :seasons do
     resources :episodes, only: [:index]
   end
-  post 'authenticate', to: 'authentication#authenticate'
+
+  resources :seasons, only: [:index, :show]
+
 end
