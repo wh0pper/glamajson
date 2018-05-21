@@ -1,27 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An API for data related to RuPaul's Drag Race. 
 
-## Setup
-When seeding database, do queens before episodes
+View the documentation for the API [here](https://www.glamajson.com)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
