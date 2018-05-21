@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: drag_api_production
-  username: drag_api
+  database: drap_api_production
+  username: drap_api
   password: <%= ENV['DRAG_API_DATABASE_PASSWORD'] %>

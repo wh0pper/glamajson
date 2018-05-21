@@ -1,5 +1,5 @@
 ---
-title: Drag Race API
+title: GlamaJSON
 
 language_tabs: # must be one of https://git.io/vQNgJ
 
