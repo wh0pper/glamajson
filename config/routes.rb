@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # root 'welcome#index'
+
   resources :quotes
   resources :queens do
     resources :quotes, only: [:index]

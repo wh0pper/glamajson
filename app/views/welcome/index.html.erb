@@ -1,0 +1,554 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>GlamaJSON</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#queens-endpoint" class="toc-h1 toc-link" data-title="queens-endpoint">Queens Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-queens" class="toc-h2 toc-link" data-title="get-all-queens">Get All Queens</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-queen" class="toc-h2 toc-link" data-title="get-a-specific-queen">Get a Specific Queen</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#quotes-endpoint" class="toc-h1 toc-link" data-title="quotes-endpoint">Quotes Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-quotes" class="toc-h2 toc-link" data-title="get-all-quotes">Get All Quotes</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-quote" class="toc-h2 toc-link" data-title="get-a-specific-quote">Get a Specific Quote</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#seasons-endpoint" class="toc-h1 toc-link" data-title="seasons-endpoint">Seasons Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-seasons" class="toc-h2 toc-link" data-title="get-all-seasons">Get All Seasons</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#episodes-endpoint" class="toc-h1 toc-link" data-title="episodes-endpoint">Episodes Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-episodes" class="toc-h2 toc-link" data-title="get-all-episodes">Get All Episodes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1><pre class="highlight plaintext"><code>Silence!!! Bring back my cURLs...
+
+Below you will find example code and returns.
+
+  {
+    "id": 1,
+    "pun": "Now sissy that call!"
+  }
+</code></pre>
+<p>Welcome to GlamaJSON, the Drag Race API! You can use our API to access a variety of Rupaul&#39;s Drag Race datapoints to get information on various queens, seasons, episodes and challenges in our database.</p>
+
+<p>The area to the right will show you how to test various calls from the command line and the resulting JSON returns.</p>
+
+<p>Coming soon:
+Soon this API will include queries that will allow you to search for quotes given a word or phrase as well as endpoints for data on challenges.</p>
+
+<aside class="notice">
+This API is open for business, no API key required!
+</aside>
+<h1 id='queens-endpoint'>Queens Endpoint</h1><h2 id='get-all-queens'>Get All Queens</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/queens"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cynthia Lee Fontaine"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"real_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carlos Hernandez"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austin, Texas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alexis Michelle"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"real_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alex Michaels"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all queens.</p>
+<h3 id='http-requests'>HTTP Requests</h3>
+<p><code>GET http://example.com/queens</code></p>
+
+<p><code>GET http://example.com/queens?winners=true</code></p>
+
+<p><code>GET http://example.com/queens?serial=true</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>all</td>
+<td>Search for specific queen by name, i.e. /queens?name=Bebe%20DZahara%20DBenet</td>
+</tr>
+<tr>
+<td>quotes</td>
+<td>false</td>
+<td>If set to true, the result will include five quotes for each queen.</td>
+</tr>
+<tr>
+<td>winners</td>
+<td>false</td>
+<td>If set to true, the result will include the winner for each season.</td>
+</tr>
+<tr>
+<td>serial</td>
+<td>false</td>
+<td>If set to true, the result will include queens who returned for multiple seasons.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-queen'>Get a Specific Queen</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/queens/2"</span>
+</code></pre>
+<p>This endpoint retrieves a specific queen.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/queens/&lt;ID&gt;</code></p>
+<h1 id='quotes-endpoint'>Quotes Endpoint</h1><h2 id='get-all-quotes'>Get All Quotes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/quotes?rupaul=true"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">545</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bring Back My Girls"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"queen_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">546</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Put The Bass In Your Walk"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"queen_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">547</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shante, You Stay"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"queen_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">548</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You Betta Work"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"queen_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all quotes in our database.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/quotes</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>random</td>
+<td>with ?random=true, one random quote will be returned</td>
+</tr>
+<tr>
+<td>author</td>
+<td>with ?author=true, all returned quotes will also list the associated queen</td>
+</tr>
+<tr>
+<td>rupaul</td>
+<td>with ?rupaul=true, only quotes from RuPaul will be returned</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-quote'>Get a Specific Quote</h2>
+<p>This endpoint allows you to get a specific quote with the associated queen.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://glamajson.com/quotes/&lt;ID&gt;</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/quotes/2"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I want a snickers!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"queen_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"queen"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Victoria Parker"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"real_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Victor Bowling"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles, California"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='seasons-endpoint'>Seasons Endpoint</h1><h2 id='get-all-seasons'>Get All Seasons</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/season/1"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Season 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"winner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"episodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">515</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_in_series"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_in_season"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Girl Groups"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"airdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"February 9, 2009 (2009-02-09)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"season_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bottom_two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akashia &amp; Tammie Brown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eliminated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tammie Brown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"winner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ongina"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lip_synch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We Break the Dawn by Michelle Williams"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves all seasons.</p>
+<h3 id='http-requests-2'>HTTP Requests</h3>
+<p><code>GET http://example.com/seasons</code>
+Returns all seasons.</p>
+
+<p><code>GET http://example.com/seasons/&lt;ID&gt;</code>
+Returns a specific season and all of its episodes.</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allstar</td>
+<td>false</td>
+<td>if set to true it will return only allstar seasons.</td>
+</tr>
+<tr>
+<td>current</td>
+<td>false</td>
+<td>if set to true it will return the current or most recent season.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — if you're not limiting your API calls, you're not doing drag!
+</aside>
+<h1 id='episodes-endpoint'>Episodes Endpoint</h1><h2 id='get-all-episodes'>Get All Episodes</h2>
+<p>This endpoint returns all episodes in the series and information on the challenges, bottom two queens, lip synch songs and main-challenge winners.</p>
+<h3 id='http-requests-3'>HTTP Requests</h3>
+<p><code>GET http://example.com/episodes</code>
+Returns all episodes.</p>
+
+<p><code>GET http://example.com/episodes/&lt;ID</code>
+Returns a specific episode.</p>
+
+<aside class="success">
+Your endpoints are officially snatched!
+</aside>
+<h1 id='errors'>Errors</h1>
+<p>The Drag Race API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The data requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified data could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access data with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The data requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too much drag data! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
