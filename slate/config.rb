@@ -39,7 +39,7 @@ set :relative_links, true
 
 # Build Configuration
 configure :build do
-  set :build_dir, '../docs'
+  set :build_dir, '../app/views/welcome'
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
