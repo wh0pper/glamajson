@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
-
   resources :quotes
   resources :queens do
     resources :quotes, only: [:index]
@@ -9,7 +7,5 @@ Rails.application.routes.draw do
   resources :seasons do
     resources :episodes, only: [:index]
   end
-
   resources :seasons, only: [:index, :show]
-
 end
