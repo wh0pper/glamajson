@@ -88,13 +88,24 @@ quotes | false | If set to true, the result will include five quotes for each qu
 winners | false | If set to true, the result will include the winner for each season.
 serial | false | If set to true, the result will include queens who returned for multiple seasons.
 
+<aside class="success">
+Remember — if you're not limiting your API calls, you're not doing drag!
+</aside>
 
 ## Get a Specific Queen
 
 ```shell
 curl "http://www.glamajson.com/queens/2"
 ```
-
+```json
+  {
+    "id": 100,
+    "name": "Naysha Lopez",
+    "real_name": "Fabian Rodriguez",
+    "city": "",
+    "age": 32
+  }
+```  
 
 
 This endpoint retrieves a specific queen.
@@ -147,6 +158,9 @@ This endpoint retrieves all quotes in our database.
 ### HTTP Request
 
 `GET http://www.glamajson.com/quotes`
+`GET http://www.glamajson.com/quotes?random=true`
+`GET http://www.glamajson.com/quotes?author-true`
+
 
 ### URL Parameters
 
@@ -234,13 +248,32 @@ Parameter | Default | Description
 allstar | false | if set to true it will return only allstar seasons.
 current | false | if set to true it will return the current or most recent season.
 
-<aside class="success">
-Remember — if you're not limiting your API calls, you're not doing drag!
-</aside>
 
 # Episodes Endpoint
 
 ## Get All Episodes
+
+```shell
+curl "http://www.glamajson.com/episode/1"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "number_in_series": 1,
+  "number_in_season": 1,
+  "title": "Drag on a Dime",
+  "airdate": "February 2, 2009 (2009-02-02)",
+  "season_id": 1,
+  "bottom_two": "Akashia, Victoria 'Porkchop' Parker",
+  "eliminated": "Victoria 'Porkchop' Parker",
+  "winner": "Nina Flowers",
+  "lip_synch": "Supermodel (You Better Work) by RuPaul"
+}
+```
+
 This endpoint returns all episodes in the series and information on the challenges, bottom two queens, lip synch songs and main-challenge winners.
 
 ### HTTP Requests
