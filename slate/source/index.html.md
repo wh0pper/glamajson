@@ -45,7 +45,7 @@ This API is open for business, no API key required!
 
 
 ```shell
-curl "http://example.com/queens"
+curl "http://www.glamajson.com/queens"
 ```
 
 > The above command returns JSON structured like this:
@@ -73,11 +73,11 @@ This endpoint retrieves all queens.
 
 ### HTTP Requests
 
-`GET http://example.com/queens`
+`GET http://www.glamajson.com/queens`
 
-`GET http://example.com/queens?winners=true`
+`GET http://www.glamajson.com/queens?winners=true`
 
-`GET http://example.com/queens?serial=true`
+`GET http://www.glamajson.com/queens?serial=true`
 
 ### Query Parameters
 
@@ -92,7 +92,7 @@ serial | false | If set to true, the result will include queens who returned for
 ## Get a Specific Queen
 
 ```shell
-curl "http://example.com/queens/2"
+curl "http://www.glamajson.com/queens/2"
 ```
 
 
@@ -103,7 +103,7 @@ This endpoint retrieves a specific queen.
 
 ### HTTP Request
 
-`GET http://example.com/queens/<ID>`
+`GET http://www.glamajson.com/queens/<ID>`
 
 
 # Quotes Endpoint
@@ -111,7 +111,7 @@ This endpoint retrieves a specific queen.
 ## Get All Quotes
 
 ```shell
-curl "http://example.com/quotes?rupaul=true"
+curl "http://www.glamajson.com/quotes?rupaul=true"
 ```
 
 > The above command returns JSON structured like this:
@@ -146,7 +146,7 @@ This endpoint retrieves all quotes in our database.
 
 ### HTTP Request
 
-`GET http://example.com/quotes`
+`GET http://www.glamajson.com/quotes`
 
 ### URL Parameters
 
@@ -164,7 +164,7 @@ This endpoint allows you to get a specific quote with the associated queen.
 `GET http://glamajson.com/quotes/<ID>`
 
 ```shell
-curl "http://example.com/quotes/2"
+curl "http://www.glamajson.com/quotes/2"
 ```
 > The above command returns JSON structured like this:
 
@@ -189,7 +189,7 @@ curl "http://example.com/quotes/2"
 
 
 ```shell
-curl "http://example.com/season/1"
+curl "http://www.glamajson.com/season/1"
 ```
 
 > The above command returns JSON structured like this:
@@ -221,10 +221,10 @@ This endpoint retrieves all seasons.
 
 ### HTTP Requests
 
-`GET http://example.com/seasons`
+`GET http://www.glamajson.com/seasons`
 Returns all seasons.
 
-`GET http://example.com/seasons/<ID>`
+`GET http://www.glamajson.com/seasons/<ID>`
 Returns a specific season and all of its episodes.
 
 ### Query Parameters
@@ -245,10 +245,10 @@ This endpoint returns all episodes in the series and information on the challeng
 
 ### HTTP Requests
 
-`GET http://example.com/episodes`
+`GET http://www.glamajson.com/episodes`
 Returns all episodes.
 
-`GET http://example.com/episodes/<ID`
+`GET http://www.glamajson.com/episodes/<ID`
 Returns a specific episode.
 
 
