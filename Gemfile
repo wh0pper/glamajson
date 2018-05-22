@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
 
 gem 'nokogiri'
+gem 'faker'
 # gem 'active_model_serializers'
 gem 'fast_jsonapi'
 gem 'seedbank'
@@ -39,7 +40,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'pry'
-  gem 'faker'
   gem 'launchy'
   gem 'factory_bot_rails'
 end
