@@ -286,7 +286,7 @@ Soon this API will include queries that will allow you to search for quotes give
 <aside class="notice">
 This API is open for business, no API key required!
 </aside>
-<h1 id='queens-endpoint'>Queens Endpoint</h1><h2 id='get-all-queens'>Get All Queens</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/queens"</span>
+<h1 id='queens-endpoint'>Queens Endpoint</h1><h2 id='get-all-queens'>Get All Queens</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/queens"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -310,11 +310,11 @@ This API is open for business, no API key required!
 </span></code></pre>
 <p>This endpoint retrieves all queens.</p>
 <h3 id='http-requests'>HTTP Requests</h3>
-<p><code>GET http://example.com/queens</code></p>
+<p><code>GET http://www.glamajson.com/queens</code></p>
 
-<p><code>GET http://example.com/queens?winners=true</code></p>
+<p><code>GET http://www.glamajson.com/queens?winners=true</code></p>
 
-<p><code>GET http://example.com/queens?serial=true</code></p>
+<p><code>GET http://www.glamajson.com/queens?serial=true</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -344,14 +344,25 @@ This API is open for business, no API key required!
 <td>If set to true, the result will include queens who returned for multiple seasons.</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-queen'>Get a Specific Queen</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/queens/2"</span>
-</code></pre>
+
+<aside class="success">
+Remember — if you're not limiting your API calls, you're not doing drag!
+</aside>
+<h2 id='get-a-specific-queen'>Get a Specific Queen</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/queens/2"</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Naysha Lopez"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"real_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fabian Rodriguez"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint retrieves a specific queen.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/queens/&lt;ID&gt;</code></p>
-<h1 id='quotes-endpoint'>Quotes Endpoint</h1><h2 id='get-all-quotes'>Get All Quotes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/quotes?rupaul=true"</span>
+<p><code>GET http://www.glamajson.com/queens/&lt;ID&gt;</code></p>
+<h1 id='quotes-endpoint'>Quotes Endpoint</h1><h2 id='get-all-quotes'>Get All Quotes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/quotes?rupaul=true"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -381,7 +392,9 @@ This API is open for business, no API key required!
 </span></code></pre>
 <p>This endpoint retrieves all quotes in our database.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/quotes</code></p>
+<p><code>GET http://www.glamajson.com/quotes</code>
+<code>GET http://www.glamajson.com/quotes?random=true</code>
+<code>GET http://www.glamajson.com/quotes?author-true</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -406,7 +419,7 @@ This API is open for business, no API key required!
 <p>This endpoint allows you to get a specific quote with the associated queen.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://glamajson.com/quotes/&lt;ID&gt;</code></p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/quotes/2"</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/quotes/2"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -423,7 +436,7 @@ This API is open for business, no API key required!
         </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='seasons-endpoint'>Seasons Endpoint</h1><h2 id='get-all-seasons'>Get All Seasons</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/season/1"</span>
+</span></code></pre><h1 id='seasons-endpoint'>Seasons Endpoint</h1><h2 id='get-all-seasons'>Get All Seasons</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/season/1"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -451,10 +464,10 @@ This API is open for business, no API key required!
 </span></code></pre>
 <p>This endpoint retrieves all seasons.</p>
 <h3 id='http-requests-2'>HTTP Requests</h3>
-<p><code>GET http://example.com/seasons</code>
+<p><code>GET http://www.glamajson.com/seasons</code>
 Returns all seasons.</p>
 
-<p><code>GET http://example.com/seasons/&lt;ID&gt;</code>
+<p><code>GET http://www.glamajson.com/seasons/&lt;ID&gt;</code>
 Returns a specific season and all of its episodes.</p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -475,17 +488,30 @@ Returns a specific season and all of its episodes.</p>
 <td>if set to true it will return the current or most recent season.</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — if you're not limiting your API calls, you're not doing drag!
-</aside>
-<h1 id='episodes-endpoint'>Episodes Endpoint</h1><h2 id='get-all-episodes'>Get All Episodes</h2>
+<h1 id='episodes-endpoint'>Episodes Endpoint</h1><h2 id='get-all-episodes'>Get All Episodes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://www.glamajson.com/episode/1"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"number_in_series"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"number_in_season"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drag on a Dime"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"airdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"February 2, 2009 (2009-02-02)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"season_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bottom_two"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akashia, Victoria 'Porkchop' Parker"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"eliminated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Victoria 'Porkchop' Parker"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"winner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nina Flowers"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lip_synch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supermodel (You Better Work) by RuPaul"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint returns all episodes in the series and information on the challenges, bottom two queens, lip synch songs and main-challenge winners.</p>
 <h3 id='http-requests-3'>HTTP Requests</h3>
-<p><code>GET http://example.com/episodes</code>
+<p><code>GET http://www.glamajson.com/episodes</code>
 Returns all episodes.</p>
 
-<p><code>GET http://example.com/episodes/&lt;ID</code>
+<p><code>GET http://www.glamajson.com/episodes/&lt;ID</code>
 Returns a specific episode.</p>
 
 <aside class="success">
