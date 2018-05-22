@@ -158,7 +158,9 @@ This endpoint retrieves all quotes in our database.
 ### HTTP Request
 
 `GET http://www.glamajson.com/quotes`
+
 `GET http://www.glamajson.com/quotes?random=true`
+
 `GET http://www.glamajson.com/quotes?author-true`
 
 
